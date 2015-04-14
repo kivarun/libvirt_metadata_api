@@ -39,6 +39,12 @@ class LibvirtMachine(Machine):
     def get_instance_type(self):
         return self.domain_etree.find('/metadata/instance-type').text
 
+    def get_hostname(self):
+        return self.domain_etree.find('/metadata/hostname').text
+
+    def get_local_hostname(self):
+        return self.domain_etree.find('/metadata/local-hostname').text
+
     def get_public_ipv4(self):
         return self.ip
 

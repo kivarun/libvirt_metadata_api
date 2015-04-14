@@ -33,6 +33,24 @@ class Machine(object):
         raise NotImplementedError
 
     @abc.abstractmethod
+    def get_hostname(self):
+        """
+        :return: the machine's hostname
+        :rtype: str
+        """
+
+        raise NotImplementedError
+
+    @abc.abstractmethod
+    def get_local_hostname(self):
+        """
+        :return: the machine's local_hostname
+        :rtype: str
+        """
+
+        raise NotImplementedError
+
+    @abc.abstractmethod
     def get_public_ipv4(self):
         """
         :return: the machine's public IPv4
