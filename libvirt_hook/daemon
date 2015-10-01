@@ -1,0 +1,16 @@
+#!/bin/bash 
+HOOK_LOG=/tmp/daemon.log  
+exec 2>&1>> $HOOK_LOG    
+PROG=/opt/libvirt_metadata_api/main.py
+ARGS="--enable-xheaders --load-edited-domain-xml"
+LOGFILE=/var/log/libvirt/metadata.log
+echo "$(/bin/date "+%Y-%m-%d %R:%S.%N") $@"
+run_prog(){
+        sleep 2 
+        $PROG $ARGS 2>$LOGFILE &
+}
+if [[ "$@" =~ start ]];then
+        run_prog 2>&1>> $HOOK_LOG
+elif [[ "$@" =~ shutdown && "$(pgrep -f $PROG)" ]];then
+        kill $(pgrep -f $PROG)
+fi

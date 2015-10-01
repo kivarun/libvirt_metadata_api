@@ -60,6 +60,9 @@ Because we need to "hijack" traffic to the metadata API IP address `169.254.169.
 `iptables -t nat -A PREROUTING -d 169.254.169.254 -p tcp --dport 80 --syn -j REDIRECT --to-port 1024`  
 Don't forget to persist this iptables rule across reboots with some sort of script (`iptables-persistent` apt package is a good candidate)
 
+Libvirt integration
+-------------------
+You must restart the application each time starts libvirtd. For automate this process you can use hook contained in libvirtd_hook directory. Put it into /etc/libvirt/hooks, and change path to the program in PROG variable in the script. 
 Known issues
 ------------
 
