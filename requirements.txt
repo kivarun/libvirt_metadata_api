@@ -1,4 +1,5 @@
-libvirt-python==1.2.3 (python-libvirt ubuntu 14 package)
-lxml==3.3.3 (python-lxml ubuntu 14 package)
-tornado==3.2 (python-tornado ubuntu 14 package)
+#Ubinu packages python-libvirt, python-lxml, python-tornado
+libvirt-python==1.2.3 
+lxml==3.3.3 
+tornado==3.2
 
